@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <link rel="stylesheet" href="/static/styles.css">
+</head>
+<body>
+  <h1>Profile</h1>
+  <p><strong>Name:</strong> {{ user.name }}</p>
+  <p><strong>ID:</strong> {{ user.id }}</p>
+  <p><strong>Email:</strong> {{ user.email }}</p>
+
+  {% if subject %}
+    <p>
+      <strong>Subject:</strong> {{ subject|capitalize }}
+      <a href="/subjects">(change)</a>
+    </p>
+  {% else %}
+    <p><a href="/subjects">Select Subject</a></p>
+  {% endif %}
+
+  {% if topic %}
+    <p>
+      <strong>Topic:</strong> {{ topic|title }}
+      <a href="/topics">(change)</a>
+    </p>
+  {% endif %}
+
+  <p><a href="/logout">Logout</a></p>
+</body>
+</html>

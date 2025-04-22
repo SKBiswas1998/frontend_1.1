@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <link rel="stylesheet" href="/static/styles.css">
+</head>
+<body>
+  <h1>{{ quiz.title }}</h1>
+  <form method="post" action="/submit-quiz">
+    {% for q in quiz.questions %}
+      <fieldset>
+        <legend>{{ q.text }}</legend>
+        {% for opt in q.options %}
+          <label>
+            <input type="radio" name="{{ q.id }}" value="{{ opt }}" required>
+            {{ opt }}
+          </label>
+        {% endfor %}
+      </fieldset>
+    {% endfor %}
+    <button type="submit">Submit Quiz</button>
+  </form>
+</body>
+</html>

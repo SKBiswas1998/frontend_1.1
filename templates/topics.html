@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <link rel="stylesheet" href="/static/styles.css">
+</head>
+<body>
+  <h1>Topics for {{ subject|capitalize }}</h1>
+  <form method="post" action="/select-topic">
+    {% for t in topics %}
+      <label>
+        <input type="radio" name="topic" value="{{ t }}" required>
+        {{ t|title }}
+      </label>
+    {% endfor %}
+    <button type="submit">Confirm Topic</button>
+  </form>
+</body>
+</html>
